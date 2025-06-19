@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "repeater-route"
+version = "0.1.0"
+description = "Route sampling + repeater lookup"
+authors = ["you <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+googlemaps = "*"
+polyline = "*"
+python-dotenv = "*"
+requests-cache = "*"
+repeaterbook = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
