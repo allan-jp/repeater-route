@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Env 
+.env
+
+# Virtual env
+.venv/
+
+# Editor backups
+*~
+.vscode/
