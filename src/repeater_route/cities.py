@@ -1,20 +1,24 @@
 # ------------------------------
 # repeater_route/cities.py
 # ------------------------------
+# ------------------------------
+# repeater_route/cities.py
+# ------------------------------
 from .sampler import sample_route
-from .state_lookup import latlon_to_fips
-from .repeater import fetch_repeaters_for_state, filter_repeaters
 
-def extract_cities_hybrid(client, origin, dest, interval):
-    pts = sample_route(client, origin, dest, interval)
-    seen_states = {}
-    results = []
-    for lat, lon in pts:
-        sid = latlon_to_fips(client, lat, lon)
-        if not sid:
-            continue
-        if sid not in seen_states:
-            seen_states[sid] = fetch_repeaters_for_state(sid)
-        for r in filter_repeaters(lat, lon, seen_states[sid]):
-            results.append(r)
-    return results
+
+def extract_cities_hybrid(client, origin: str, dest: str, interval: float) -> list[tuple[float, float]]:
+    """
+    Retrieve coordinates along the route from origin to dest.
+
+    - Uses a hybrid sampling (turn-by-turn waypoints) when interval is None or 0.
+    - When interval > 0, returns points sampled every `interval` miles.
+
+    :param client:      HTTP or routing client for sample_route
+    :param origin:      Origin location string (address or place name)
+    :param dest:        Destination location string
+    :param interval:    Sampling interval in miles; if 0 or None, hybrid-step only
+    :return:            List of (latitude, longitude) tuples
+    """
+    # Delegate to sampler.sample_route: handles both hybrid and interval sampling
+    return sample_route(client, origin, dest, interval)
