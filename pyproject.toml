@@ -3,9 +3,12 @@ name = "repeater-route"
 version = "0.1.0"
 description = "Route sampling + repeater lookup"
 authors = ["you <you@example.com>"]
+packages = [
+  { include = "repeater_tools", from = "src" }
+]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = ">=3.8,<4.0"
 googlemaps = "*"
 polyline = "*"
 python-dotenv = "*"
@@ -15,3 +18,4 @@ repeaterbook = "*"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
