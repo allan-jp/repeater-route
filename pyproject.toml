@@ -4,7 +4,8 @@ version = "0.1.0"
 description = "Route sampling + repeater lookup"
 authors = ["you <you@example.com>"]
 packages = [
-  { include = "repeater_tools", from = "src" }
+  { include = "repeater_tools", from = "src" },
+  { include = "models", from = "src" }
 ]
 
 [tool.poetry.dependencies]

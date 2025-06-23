@@ -27,7 +27,7 @@ import requests_cache
 #  - install a requests_cache so that all googlemaps calls (including reverse-
 #    geocode later on) get cached to 'gmaps_cache.sqlite'
 load_dotenv()
-requests_cache.install_cache("gmaps_cache", backend="sqlite", expire_after=None)
+requests_cache.install_cache("repeater_route", backend="sqlite", expire_after=None)
 
 # -----------------------------------------------------------------------------
 # Third‐party / local imports that depend on the env & cache being in place

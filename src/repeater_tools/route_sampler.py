@@ -1,30 +1,12 @@
 # repeater_tools/route_sampler.py
 import googlemaps, polyline, os, sys
-from math import radians, sin, cos, asin, sqrt
+from .utils import haversine, interpolate
 from urllib.parse import urlparse, parse_qs, unquote
 from dotenv import load_dotenv
 
 load_dotenv()
 API_KEY = os.getenv('MAPS_API_KEY') or sys.exit("Set MAPS_API_KEY")
 gmaps = googlemaps.Client(key=API_KEY)
-
-# -----------------------------------------------------------------------------
-# Helpers: Haversine & linear interpolation
-# -----------------------------------------------------------------------------
-def haversine(a, b):
-    """Return distance in miles between two (lat, lon) points."""
-    lat1, lon1 = a; lat2, lon2 = b
-    lat1, lon1, lat2, lon2 = map(radians, (lat1, lon1, lat2, lon2))
-    dlat, dlon = lat2 - lat1, lon2 - lon1
-    h = sin(dlat/2)**2 + cos(lat1)*cos(lat2)*sin(dlon/2)**2
-    return 3959.0 * 2 * asin(sqrt(h))
-
-def interpolate(p1, p2, frac):
-    """Linear interpolation between p1 and p2 by fraction [0..1]."""
-    return (
-        p1[0] + (p2[0] - p1[0]) * frac,
-        p1[1] + (p2[1] - p1[1]) * frac,
-    )
 
 # -----------------------------------------------------------------------------
 # Parse Google Maps directions URL
