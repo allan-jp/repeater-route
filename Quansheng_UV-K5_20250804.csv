@@ -1,0 +1,7 @@
+Location,Name,Frequency,Duplex,Offset,Tone,rToneFreq,cToneFreq,DtcsCode,DtcsPolarity,RxDtcsCode,CrossMode,Mode,TStep,Skip,Power,Comment,URCALL,RPT1CALL,RPT2CALL,DVCODE
+1,Mayo Clini,146.625000,-,0.600000,TSQL,88.5,100.0,023,NN,023,Tone->Tone,FM,5.00,,5.0W,,,,,
+2,W0MXW,146.820000,-,0.600000,Tone,100.0,88.5,023,NN,023,Tone->Tone,FM,5.00,,5.0W,,,,,
+3,AB0BW,444.950000,+,5.000000,Tone,114.8,88.5,023,NN,023,Tone->Tone,FM,5.00,,5.0W,,,,,
+4,KD0EBO,147.255000,+,0.600000,Tone,100.0,88.5,023,NN,023,Tone->Tone,FM,5.00,,5.0W,,,,,
+5,2M CALL,146.520000,,0.000000,,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,5.0W,,,,,
+6,70CM CA,446.000000,,0.000000,,88.5,88.5,023,NN,023,Tone->Tone,FM,5.00,,5.0W,,,,,
